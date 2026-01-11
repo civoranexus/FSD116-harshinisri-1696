@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Civora Nexus Nursery System</title>
+    <link rel="stylesheet" href="/style.css/auth.css">
+    <link rel="icon" href="/assets/logo/favicon.ico" type="image/x-icon">
+</head>
+<body class="auth-page">
+    <!-- Background with nursery theme -->
+    <div class="auth-background">
+        <div class="auth-overlay"></div>
+        <div class="auth-pattern"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="auth-container">
+        <!-- Left Panel - Branding -->
+        <div class="auth-brand-panel">
+            <div class="brand-content">
+                <div class="logo-container">
+                    <img src="/assets/logo/civora-nexus-logo-white.svg" alt="Civora Nexus" class="brand-logo">
+                    <span class="brand-tagline">Nursery & Seed Management System</span>
+                </div>
+                
+                <div class="brand-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌱</div>
+                        <div class="feature-text">
+                            <h4>Smart Inventory Tracking</h4>
+                            <p>Real-time batch monitoring and stock management</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📦</div>
+                        <div class="feature-text">
+                            <h4>Seamless Order Processing</h4>
+                            <p>Efficient order fulfillment and invoicing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-text">
+                            <h4>Advanced Analytics</h4>
+                            <p>Predictive insights for better decision making</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="system-status">
+                    <div class="status-indicator online"></div>
+                    <span>System Status: <strong>Online</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Login Form -->
+        <div class="auth-form-panel">
+            <div class="form-wrapper">
+                <!-- Role Selection Tabs -->
+                <div class="role-tabs" id="roleTabs">
+                    <button class="role-tab active" data-role="staff">
+                        <i class="tab-icon">👨‍🌾</i>
+                        <span>Staff Login</span>
+                    </button>
+                    <button class="role-tab" data-role="customer">
+                        <i class="tab-icon">👤</i>
+                        <span>Customer Login</span>
+                    </button>
+                    <button class="role-tab" data-role="admin">
+                        <i class="tab-icon">👑</i>
+                        <span>Admin Login</span>
+                    </button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="login-form">
+                    <div class="form-header">
+                        <h2>Welcome Back</h2>
+                        <p class="role-description" id="roleDescription">
+                            Access your nursery management dashboard
+                        </p>
+                    </div>
+
+                    <!-- Email/Username Field -->
+                    <div class="form-group">
+                        <label for="username" class="form-label">
+                            <i class="icon">📧</i>
+                            Email or Username
+                        </label>
+                        <div class="input-with-icon">
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="username" 
+                                placeholder="Enter your email or username"
+                                autocomplete="username"
+                                required
+                                class="form-control"
+                            >
+                            <div class="input-icon">
+                                <i class="icon">👤</i>
+                            </div>
+                        </div>
+                        <div class="input-hint">
+                            Use your registered email address
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <div class="form-label-row">
+                            <label for="password" class="form-label">
+                                <i class="icon">🔒</i>
+                                Password
+                            </label>
+                            <a href="/forgot-password" class="forgot-link">Forgot Password?</a>
+                        </div>
+                        <div class="input-with-icon">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                                class="form-control"
+                            >
+                            <div class="input-icon">
+                                <i class="icon">🔑</i>
+                            </div>
+                            <button type="button" class="password-toggle" id="togglePassword">
+                                <i class="icon">👁️</i>
+                            </button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar"></div>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me & Security Options -->
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Remember me on this device</span>
+                        </label>
+                        
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="secureSession" name="secureSession">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Use secure session (log out automatically)</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary btn-login" id="loginButton">
+                        <span class="btn-text">Sign In</span>
+                        <span class="btn-loading" id="loadingSpinner">
+                            <div class="spinner"></div>
+                        </span>
+                    </button>
+
+                    <!-- Alternative Login Methods -->
+                    <div class="divider">
+                        <span>or continue with</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <img src="/assets/icons/google.svg" alt="Google">
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="social-btn microsoft">
+                            <img src="/assets/icons/microsoft.svg" alt="Microsoft">
+                            <span>Microsoft</span>
+                        </button>
+                    </div>
+
+                    <!-- Registration Link -->
+                    <div class="auth-footer">
+                        <p>
+                            Don't have an account? 
+                            <a href="/register" class="register-link">Create Account</a>
+                        </p>
+                        <p class="register-hint">
+                            Need staff/admin access? <a href="/contact-admin">Contact Administrator</a>
+                        </p>
+                    </div>
+                </form>
+
+                <!-- Quick Links -->
+                <div class="quick-links">
+                    <a href="/" class="quick-link">
+                        <i class="icon">🏠</i>
+                        <span>Back to Home</span>
+                    </a>
+                    <a href="/help/login" class="quick-link">
+                        <i class="icon">❓</i>
+                        <span>Login Help</span>
+                    </a>
+                    <a href="/system-status" class="quick-link">
+                        <i class="icon">📡</i>
+                        <span>System Status</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Security Badges -->
+            <div class="security-badges">
+                <div class="badge">
+                    <i class="icon">🔐</i>
+                    <span>256-bit SSL Encrypted</span>
+                </div>
+                <div class="badge">
+                    <i class="icon">🛡️</i>
+                    <span>GDPR Compliant</span>
+                </div>
+                <div class="badge">
+                    <i class="icon">⚡</i>
+                    <span>Secure Authentication</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Login Error</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="error-icon">⚠️</div>
+                <p id="errorMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="closeError">Close</button>
+                <button class="btn btn-primary" id="tryAgain">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script/login.js"></script>
+</body>
+</html>
